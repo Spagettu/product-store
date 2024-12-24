@@ -1,0 +1,81 @@
+{
+  "productList": [
+    {
+      "title": "headphones",
+      "photos": ["https://img.freepik.com/free-photo/still-life-wireless-cyberpunk-headphones_23-2151072236.jpg"],
+      "price": "34000",
+      "reviews": [
+       { "author":"admin","text":"хороший товар","publishedAt":"","score":4}
+      ],
+      "categories": [
+        "Аксессуары"
+      ],
+      "score": "3.8",
+      "description": "for ears",
+      "id": "5"
+    },
+    {
+      "title": "smartphone",
+      "photos": ["https://img.freepik.com/free-photo/mobile-phone-screen-digital-device_53876-96806.jpg"],
+      "price": "20000",
+      "reviews": [],
+      "categories": [
+        "Аксессуары",
+        "Смартфоны"
+      ],
+      "score": "4.1",
+      "description": "for beatiful life",
+      "id": "6"
+    },
+    {
+      "title": "D&D",
+      "photos": [],
+      "price": "10100",
+      "reviews": [],
+      "categories": [
+        "Игрушки для детей",
+        "Модели и конструкторы"
+      ],
+      "score": "4.4",
+      "description": "nice",
+      "id": "7"
+    },
+    {
+      "title": "клавиатура ",
+      "photos": ["https://img.freepik.com/free-photo/party-space-ready-online-celebration_23-2149347240.jpg"],
+      "price": "17500",
+      "reviews": [],
+      "categories": [
+        "Гаджеты",
+        "Декор"
+      ],
+      "score": "4.2",
+      "description": "",
+      "id": "8"
+    },
+    {
+      "title": "подушка",
+      "photos": ["https://img.freepik.com/premium-photo/clasic-white-rectangular-pillow-3d-illustration-white_268321-454.jpg"],
+      "price": "2100",
+      "reviews": [],
+      "categories": [
+        "Мебель"
+      ],
+      "score": "3.9",
+      "description": "",
+      "id": "9"
+    },
+    {
+      "title": "эспандер",
+      "photos": ["https://img.freepik.com/premium-photo/expander-white-background-hands-grip-strengthener-sporty-wrist-builder-everyday-trainings_370059-435.jpg"],
+      "price": "500",
+      "reviews": [],
+      "categories": [
+        "Спортивное оборудование"
+      ],
+      "score": "4.6",
+      "description": "",
+      "id": "10"
+    }
+  ]
+}
