@@ -54,7 +54,7 @@ export const UserCart = () => {
       onMouseLeave={handleMouseLeave}
     >
       <div className="verticalTitleBox" style={verticalTitleBoxStyle}>
-        <div className="circle">{totalCount}</div>
+        {totalCount > 0 && <div className="circle">{totalCount}</div>}
         <h2 className="verticalTitle">Корзина</h2>
       </div>
 

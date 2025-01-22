@@ -64,7 +64,8 @@ export type CategoryTypes =
   | "Ноутбуки"
   | "Телевизоры"
   | "Аудио и видео"
-  | "Гаджеты";
+  | "Гаджеты"
+  | "Еда";
 
 export type TranslatedFfiltersProps = {
   [key in ExctractedFilterFieldRU]: ExctractedFilterFieldENG;

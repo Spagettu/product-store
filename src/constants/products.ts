@@ -1,3 +1,4 @@
+import { CategoryTypes } from "./../props/product-props";
 import {
   initialPriceState,
   initialScoreState,
@@ -64,6 +65,7 @@ export const categorySheet: CategoryTypes[] = [
   "Телевизоры",
   "Аудио и видео",
   "Гаджеты",
+  "Еда",
 ];
 
 export const TranslatedFilters: TranslatedFfiltersProps = {

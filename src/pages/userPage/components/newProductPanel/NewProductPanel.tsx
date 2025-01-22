@@ -1,14 +1,14 @@
 import React, { ChangeEvent, useState } from "react";
 
 import styled from "styled-components";
-import { ProductProps } from "../../../../props";
+import { CategoryTypes, ProductProps } from "../../../../props";
 import { useProductStore } from "../../../../store";
 import { categorySheet, initialProductList } from "../../../../constants";
 import { asynPostProduct } from "../../../../bff";
 
 export const NewProductPanel = () => {
   const [values, setValues] = useState<ProductProps>(initialProductList[0]);
-  const [categories, setCategories] = useState(["none"]);
+  const [categories, setCategories] = useState<CategoryTypes[]>([]);
 
   const { productList, addNewProduct } = useProductStore((state) => state);
 
@@ -31,7 +31,7 @@ export const NewProductPanel = () => {
     }
 
     setValues(initialProductList[0]);
-    setCategories(["none"]);
+    setCategories([]);
   };
 
   const handleChange = (
@@ -63,77 +63,149 @@ export const NewProductPanel = () => {
   const handleSetCategories = (e: HTMLSelectElement) => {
     setCategories((prev) => [...prev, e.value]);
   };
+
+  const handleRemoveCategory = (id: number) => {
+    const newCategories = [
+      ...categories.slice(0, id),
+      ...categories.slice(id + 1, categories.length),
+    ];
+
+    console.log(newCategories);
+
+    setCategories(newCategories);
+  };
+
   return (
     <AddNewProductContainer>
-      <input
-        type="text"
-        placeholder="title"
-        name="title"
-        value={values.title}
-        onChange={(e) => handleChange(e)}
-      />
-      <input
-        type="text"
-        placeholder="photos"
-        name="photos"
-        value={values.photos}
-        onChange={(e) => handleChange(e)}
-      />
-      <input
-        type="text"
-        placeholder="price"
-        name="price"
-        value={values.price}
-        onChange={(e) => handleChange(e)}
-      />
-      <input
-        type="text"
-        placeholder="reviews"
-        name="reviews"
-        value={values.reviews}
-        onChange={(e) => handleChange(e)}
-      />
-      <select
-        // defaultValue="none"
-        name="categories"
-        value={categories[categories.length - 1]}
-        onChange={({ target }) => handleSetCategories(target)}
-      >
-        {categorySheet.map((el) => (
-          <option key={el}>{el}</option>
-        ))}
-      </select>
-      <input
-        type="text"
-        placeholder="score"
-        name="score"
-        value={values.score}
-        onChange={(e) => handleChange(e)}
-      />
-      <input
-        type="text"
-        placeholder="description"
-        name="description"
-        value={values.description}
-        onChange={(e) => handleChange(e)}
-      />
+      <div className="row">
+        <label>title</label>
+        <input
+          type="text"
+          placeholder="title"
+          name="title"
+          value={values.title}
+          onChange={(e) => handleChange(e)}
+        />
+      </div>
+      <div className="row">
+        <label htmlFor="">photos</label>
+        <input
+          type="text"
+          placeholder="photos"
+          name="photos"
+          value={values.photos}
+          onChange={(e) => handleChange(e)}
+        />
+      </div>
+
+      <div className="row">
+        <label htmlFor="">price</label>
+        <input
+          type="text"
+          placeholder="price"
+          name="price"
+          value={values.price}
+          onChange={(e) => handleChange(e)}
+        />
+      </div>
+
+      <div className="row">
+        <label htmlFor="">score</label>
+        <input
+          type="text"
+          placeholder="score"
+          name="score"
+          value={values.score}
+          onChange={(e) => handleChange(e)}
+        />
+      </div>
+
+      <div className="row">
+        <label htmlFor="">description</label>
+        <input
+          type="text"
+          placeholder="description"
+          name="description"
+          value={values.description}
+          onChange={(e) => handleChange(e)}
+        />
+      </div>
+      <div className="row">
+        <div style={{ width: "100%" }} className="row">
+          <label htmlFor="">categories</label>
+          <select
+            // defaultValue="none"
+            name="categories"
+            value={categories[categories.length - 1]}
+            onChange={({ target }) => handleSetCategories(target)}
+          >
+            {categorySheet.map((el) => (
+              <option key={el}>{el}</option>
+            ))}
+          </select>
+        </div>
+        <div className="row">
+          {categories.map((el, id) => (
+            <div key={el} className="row category">
+              <p>{el}</p>
+              <button onClick={() => handleRemoveCategory(id)}>x</button>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <button onClick={handleClick}> add</button>
     </AddNewProductContainer>
   );
 };
 
 const AddNewProductContainer = styled.div({
-  width: "700px",
+  width: "100%",
   height: "500px",
   zIndex: "10",
-  backgroundColor: "black",
+
   top: "20px",
-  border: "1px solid white",
+
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
   gap: "5px",
+  padding: "0 30px",
 
-  "*": { color: "black", fontSize: "16px", width: "100%", maxWidth: "200px" },
+  label: {
+    color: "white",
+    width: "max",
+  },
+
+  "select,label,p,button": {
+    fontSize: "18px",
+  },
+
+  "select,button,input": {
+    color: "black",
+  },
+
+  input: {
+    width: "100%",
+  },
+
+  ".row": {
+    display: "flex",
+    // flexWrap: "wrap",
+    justifyContent: "start",
+    maxWidth: "400px",
+    gap: "10px",
+    padding: "3px 2px",
+  },
+
+  ".category": {
+    border: "1px solid white",
+    borderRadius: "3px",
+    padding: "4px 2px 2px",
+  },
+
+  button: {
+    padding: "0 5px",
+  },
 });

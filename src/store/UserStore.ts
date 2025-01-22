@@ -39,15 +39,15 @@ export const useUserStore = create<UserStoreProps>((set, get) => ({
   addProductToCart: (newProduct) => {
     const { title: newProductTitle } = newProduct;
 
-    const newTitleIndex = get().cart.findIndex(
+    const newProductTitleIndex = get().cart.findIndex(
       ({ title }) => title === newProductTitle
     );
 
-    if (newTitleIndex == -1) {
+    if (newProductTitleIndex == -1) {
       set({ cart: [...get().cart, newProduct] });
-    } else if (newTitleIndex > -1) {
+    } else if (newProductTitleIndex > -1) {
       const newCart = get().cart;
-      newCart[newTitleIndex].count += 1;
+      newCart[newProductTitleIndex].count += 1;
       set({ cart: newCart });
     }
   },

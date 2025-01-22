@@ -2,10 +2,17 @@
   "productList": [
     {
       "title": "headphones",
-      "photos": ["https://img.freepik.com/free-photo/still-life-wireless-cyberpunk-headphones_23-2151072236.jpg"],
+      "photos": [
+        "https://img.freepik.com/free-photo/still-life-wireless-cyberpunk-headphones_23-2151072236.jpg"
+      ],
       "price": "34000",
       "reviews": [
-       { "author":"admin","text":"хороший товар","publishedAt":"","score":4}
+        {
+          "author": "admin",
+          "text": "хороший товар",
+          "publishedAt": "",
+          "score": 4
+        }
       ],
       "categories": [
         "Аксессуары"
@@ -16,7 +23,9 @@
     },
     {
       "title": "smartphone",
-      "photos": ["https://img.freepik.com/free-photo/mobile-phone-screen-digital-device_53876-96806.jpg"],
+      "photos": [
+        "https://img.freepik.com/free-photo/mobile-phone-screen-digital-device_53876-96806.jpg"
+      ],
       "price": "20000",
       "reviews": [],
       "categories": [
@@ -42,7 +51,9 @@
     },
     {
       "title": "клавиатура ",
-      "photos": ["https://img.freepik.com/free-photo/party-space-ready-online-celebration_23-2149347240.jpg"],
+      "photos": [
+        "https://img.freepik.com/free-photo/party-space-ready-online-celebration_23-2149347240.jpg"
+      ],
       "price": "17500",
       "reviews": [],
       "categories": [
@@ -55,7 +66,9 @@
     },
     {
       "title": "подушка",
-      "photos": ["https://img.freepik.com/premium-photo/clasic-white-rectangular-pillow-3d-illustration-white_268321-454.jpg"],
+      "photos": [
+        "https://img.freepik.com/premium-photo/clasic-white-rectangular-pillow-3d-illustration-white_268321-454.jpg"
+      ],
       "price": "2100",
       "reviews": [],
       "categories": [
@@ -67,7 +80,9 @@
     },
     {
       "title": "эспандер",
-      "photos": ["https://img.freepik.com/premium-photo/expander-white-background-hands-grip-strengthener-sporty-wrist-builder-everyday-trainings_370059-435.jpg"],
+      "photos": [
+        "https://img.freepik.com/premium-photo/expander-white-background-hands-grip-strengthener-sporty-wrist-builder-everyday-trainings_370059-435.jpg"
+      ],
       "price": "500",
       "reviews": [],
       "categories": [
@@ -76,6 +91,31 @@
       "score": "4.6",
       "description": "",
       "id": "10"
+    },
+    {
+      "title": "макароны",
+      "photos": [],
+      "price": "300",
+      "reviews": [],
+      "categories": [
+        "Здоровое питание",
+        "Уход за кожей"
+      ],
+      "score": "3.1",
+      "description": "вкусные ровные макароны",
+      "id": "11"
+    },
+    {
+      "title": "аккумулятор",
+      "photos": [
+        "https://img.freepik.com/premium-photo/3d-illustration-isolated-mobile-phone-battery_582173-214.jpg?w=740"
+      ],
+      "price": "3500",
+      "reviews": [],
+      "categories": [],
+      "score": "4.1",
+      "description": "",
+      "id": "12"
     }
   ]
 }

@@ -1,5 +1,5 @@
 /* eslint-disable no-extra-boolean-cast */
-import React, { ChangeEvent, useEffect, useMemo } from "react";
+import React, { ChangeEvent, useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 import { FilterList } from "./components/filterList/FilterList";
 
@@ -10,8 +10,12 @@ import { SortBox } from "./components/SelectsLine";
 import { useUserStore } from "../../store/UserStore";
 import { Link } from "react-router-dom";
 import { useDebounce } from "../../hooks";
+import { Pagination } from "./components/Pagination";
 
 export const ProductList = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsOnPage, setItemsOnPAge] = useState(3);
+
   const {
     productList,
     filteredProductList,
@@ -36,6 +40,11 @@ export const ProductList = () => {
     setFilters({ ...filtersData, query: e.target.value });
   };
 
+  const slicedFilteredProductList = filteredProductList.slice(
+    currentPage * itemsOnPage - itemsOnPage,
+    itemsOnPage * currentPage
+  );
+
   return (
     <ProductContainer>
       <FilterList />
@@ -49,7 +58,7 @@ export const ProductList = () => {
         <ProductListContainer>
           {!!productList.length ? (
             !!filteredProductList.length ? (
-              filteredProductList.map(
+              slicedFilteredProductList.map(
                 ({ photos, price, score, description, title, id }, index) => (
                   <ProductCard key={id}>
                     <div className="image">
@@ -82,6 +91,7 @@ export const ProductList = () => {
             <Loader />
           )}
         </ProductListContainer>
+        <Pagination {...{ currentPage, setCurrentPage, itemsOnPage }} />
         {filteredProductList &&
           `Продуктов найдено: ${filteredProductList.length}`}
       </div>
